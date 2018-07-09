@@ -1,54 +1,21 @@
-﻿// To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
-//
-//    using Contract;
-//
-//    var welcome = Welcome.FromJson(jsonString);
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Practica_1;
+using Practica_1.Entities;
 
-namespace Contract
+namespace Practica_1.Utils
 {
-    using System;
-    using System.Collections.Generic;
-
-    using System.Globalization;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-
-    public partial class Welcome
-    {
-        [JsonProperty("ContractID")]
-        public string ContractId { get; set; }
-
-        [JsonProperty("Name")]
-        public string Name { get; set; }
-
-        [JsonProperty("AccountID")]
-        public long AccountId { get; set; }
-
-        [JsonProperty("AccountName")]
-        public string AccountName { get; set; }
-
-        [JsonProperty("AccountOwner")]
-        public string AccountOwner { get; set; }
-
-        [JsonProperty("ProjectType")]
-        public object ProjectType { get; set; }
-
-        [JsonProperty("Revenue")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Revenue { get; set; }
-
-        [JsonProperty("RevenueEUR")]
-        public string RevenueEur { get; set; }
-    }
-
-    public partial class Welcome
-    {
-        public static Welcome FromJson(string json) => JsonConvert.DeserializeObject<Welcome>(json, Contract.Converter.Settings);
-    }
-
     public static class Serialize
     {
-        public static string ToJson(this Welcome self) => JsonConvert.SerializeObject(self, Contract.Converter.Settings);
+        public static string ToJson(this Work self) => JsonConvert.SerializeObject(self, Converter.Settings);
+        public static string ToJson(this Contract self) => JsonConvert.SerializeObject(self, Converter.Settings);
+        public static string ToJson(this Budget self) => JsonConvert.SerializeObject(self, Converter.Settings);
     }
 
     internal static class Converter
@@ -93,4 +60,5 @@ namespace Contract
 
         public static readonly ParseStringConverter Singleton = new ParseStringConverter();
     }
+
 }

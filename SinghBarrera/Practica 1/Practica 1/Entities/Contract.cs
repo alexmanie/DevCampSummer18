@@ -1,10 +1,10 @@
 ﻿// To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using Raona1;
+//    using Contract;
 //
-//    var contract = Contract.FromJson(jsonString);
+//    var welcome = Welcome.FromJson(jsonString);
 
-namespace Raona1
+namespace Practica_1.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -12,6 +12,7 @@ namespace Raona1
     using System.Globalization;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
+    using Practica_1.Utils;
 
     public partial class Contract
     {
@@ -34,7 +35,8 @@ namespace Raona1
         public object ProjectType { get; set; }
 
         [JsonProperty("Revenue")]
-        public string Revenue { get; set; }
+        [JsonConverter(typeof(ParseStringConverter))]
+        public long Revenue { get; set; }
 
         [JsonProperty("RevenueEUR")]
         public string RevenueEur { get; set; }
@@ -42,23 +44,8 @@ namespace Raona1
 
     public partial class Contract
     {
-        public static List<Contract> FromJson(string json) => JsonConvert.DeserializeObject<List<Contract>>(json, Raona1.Converter.Settings);
+        public static Contract FromJson(string json) => JsonConvert.DeserializeObject<Contract>(json, Converter.Settings);
     }
 
-    /*public static class Serialize
-    {
-        public static string ToJson(this Contract self) => JsonConvert.SerializeObject(self, Raona1.Converter.Settings);
-    }
-
-    internal static class Converter
-    {
-        public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
-        {
-            MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
-            DateParseHandling = DateParseHandling.None,
-            Converters = {
-                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
-            },
-        };
-    }*/
+    
 }

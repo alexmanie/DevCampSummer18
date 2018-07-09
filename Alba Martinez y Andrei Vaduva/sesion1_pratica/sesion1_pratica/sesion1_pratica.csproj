@@ -172,9 +172,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Data\BudgetData.json" />
-    <Content Include="App_Data\ContractsData.json" />
-    <Content Include="App_Data\WorkData.json" />
+    <EmbeddedResource Include="App_Data\BudgetData.json" />
+    <EmbeddedResource Include="App_Data\ContractsData.json" />
+    <EmbeddedResource Include="App_Data\WorkData.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
