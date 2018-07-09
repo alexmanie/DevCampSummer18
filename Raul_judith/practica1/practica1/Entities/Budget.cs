@@ -1,10 +1,10 @@
 ﻿// To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using DataSet;
+//    using QuickType;
 //
 //    var budget = Budget.FromJson(jsonString);
 
-namespace QuickType
+namespace QuickType.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -64,24 +64,7 @@ namespace QuickType
 
     public partial class Budget
     {
-        public static Budget FromJson(string json) => JsonConvert.DeserializeObject<Budget>(json, DataSet.Converter.Settings);
-    }
-
-    public static class Serialize
-    {
-        public static string ToJson(this Budget self) => JsonConvert.SerializeObject(self, DataSet.Converter.Settings);
-    }
-
-    internal static class Converter
-    {
-        public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
-        {
-            MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
-            DateParseHandling = DateParseHandling.None,
-            Converters = {
-                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
-            },
-        };
+        public static Budget FromJson(string json) => JsonConvert.DeserializeObject<Budget>(json, practica1.Utils.Converter.Settings);
     }
 
     internal class ParseStringConverter : JsonConverter
