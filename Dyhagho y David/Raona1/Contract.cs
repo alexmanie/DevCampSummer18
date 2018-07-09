@@ -49,25 +49,6 @@ namespace Raona1
         public static List<Contract> FromJson(string json) => JsonConvert.DeserializeObject<List<Contract>>(json, Raona1.Converter.Settings);
     }
 
-    public static class Serialize
-    {
-        public static string ToJson(this List<Contract> self) => JsonConvert.SerializeObject(self, Raona1.Converter.Settings);
-    }
-
-    internal static class Converter
-    {
-        public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
-        {
-            MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
-            DateParseHandling = DateParseHandling.None,
-            Converters = {
-                AccountOwnerConverter.Singleton,
-                ProjectTypeConverter.Singleton,
-                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
-            },
-        };
-    }
-
     internal class AccountOwnerConverter : JsonConverter
     {
         public override bool CanConvert(Type t) => t == typeof(AccountOwner) || t == typeof(AccountOwner?);
