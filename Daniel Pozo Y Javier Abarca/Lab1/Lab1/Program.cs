@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raona1
+namespace Lab1
 {
-    class Project
+    class Program
     {
-        private Budget budget;
-
-        public Project(Budget b)
+        static void Main(string[] args)
         {
-            this.budget = b;
         }
     }
 }
