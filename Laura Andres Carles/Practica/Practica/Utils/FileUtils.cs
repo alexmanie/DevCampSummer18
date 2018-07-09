@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApp1.Utils
+namespace Practica.Utils
 {
     public static class FileUtils
     {
@@ -38,12 +38,10 @@ namespace WindowsFormsApp1.Utils
             }
         }
 
-        //Tots els metodes asincronos tenen "async" i retornen Task.
-        //Es fica "await" on vols que esperi
-        public static async Task<string> ReadSampleDataAsync()
+        public static async Task<string> ReadBudgetAsync()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "FormsSummerCamp2018.Data.SampleData.json";
+            var resourceName = "Practica.Data.BudgetData.json";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
@@ -56,10 +54,10 @@ namespace WindowsFormsApp1.Utils
             }
         }
 
-        public static async Task<string> ReadBudgetDataAsync()
+        public static async Task<string> ReadWorkAsync()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "FormsSummerCamp2018.Data.BudgetData.json";
+            var resourceName = "Practica.Data.WorkData.json";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
@@ -72,26 +70,10 @@ namespace WindowsFormsApp1.Utils
             }
         }
 
-        public static async Task<string> ReadContractsDataAsync()
+        public static async Task<string> ReadContractAsync()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "FormsSummerCamp2018.Data.ContractsData.json";
-
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            {
-                using (StreamReader reader = new StreamReader(stream))
-                {
-                    var sampleDataText = await reader.ReadToEndAsync();
-
-                    return sampleDataText;
-                }
-            }
-        }
-
-        public static async Task<string> ReadWorkDataAsync()
-        {
-            var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "FormsSummerCamp2018.Data.WorkData.json";
+            var resourceName = "Practica.Data.ContractsData.json";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
