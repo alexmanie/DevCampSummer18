@@ -22,12 +22,11 @@ namespace WindowsFormsApp1.Utils
             }
         }
 
-        public static string ReadSampleData()
+        public static string ReadSampleData(string path)
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "AdriaSergioApp.Data.ContractsData.json";
 
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            using (Stream stream = assembly.GetManifestResourceStream(path))
             {
                 using (StreamReader reader = new StreamReader(stream))
                 {
