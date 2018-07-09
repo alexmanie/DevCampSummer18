@@ -10,6 +10,11 @@ namespace Raona1
     {
         static void Main(string[] args)
         {
+            List<Work> workList  = FileUtils.readWorkList("Raona1.files.WorkData.json");
+            List<Budget> budgetList = FileUtils.readBudgetList("Raona1.files.BudgetData.json");
+            List<Contract> contractList = FileUtils.readContractList("Raona1.files.ContractsData.json");
+
+
         }
     }
 }

@@ -42,7 +42,7 @@ namespace Raona1
 
     public partial class Contract
     {
-        public static Contract FromJson(string json) => JsonConvert.DeserializeObject<Contract>(json, Raona1.Converter.Settings);
+        public static List<Contract> FromJson(string json) => JsonConvert.DeserializeObject<List<Contract>>(json, Raona1.Converter.Settings);
     }
 
     /*public static class Serialize
