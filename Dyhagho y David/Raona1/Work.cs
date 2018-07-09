@@ -48,7 +48,7 @@ namespace Raona1
         public static Work FromJson(string json) => JsonConvert.DeserializeObject<Work>(json, Raona1.Converter.Settings);
     }
 
-    public static class Serialize
+    /*public static class Serialize
     {
         public static string ToJson(this Work self) => JsonConvert.SerializeObject(self, Raona1.Converter.Settings);
     }
@@ -63,5 +63,5 @@ namespace Raona1
                 new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
             },
         };
-    }
+    }*/
 }

@@ -13,7 +13,7 @@ namespace Raona1
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public partial class Contract
+    public partial class Budget
     {
         [JsonProperty("BudgetId")]
         public string BudgetId { get; set; }
@@ -62,12 +62,12 @@ namespace Raona1
         public long DateKey { get; set; }
     }
 
-    public partial class Contract
+    public partial class Budget
     {
-        public static Contract FromJson(string json) => JsonConvert.DeserializeObject<Contract>(json, Raona1.Converter.Settings);
+        public static Budget FromJson(string json) => JsonConvert.DeserializeObject<Budget>(json, Raona1.Converter.Settings);
     }
 
-    public static class Serialize
+    /*public static class Serialize
     {
         public static string ToJson(this Contract self) => JsonConvert.SerializeObject(self, Raona1.Converter.Settings);
     }
@@ -82,7 +82,7 @@ namespace Raona1
                 new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
             },
         };
-    }
+    }*/
 
     internal class ParseStringConverter : JsonConverter
     {
