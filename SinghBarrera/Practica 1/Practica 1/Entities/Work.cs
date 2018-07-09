@@ -46,7 +46,7 @@ namespace Practica_1.Entities
 
     public partial class Work
     {
-        public static Work FromJson(string json) => JsonConvert.DeserializeObject<Work>(json, Converter.Settings);
+        public static List<Work> FromJson(string json) => JsonConvert.DeserializeObject<List<Work>>(json, Converter.Settings);
     }
 
     

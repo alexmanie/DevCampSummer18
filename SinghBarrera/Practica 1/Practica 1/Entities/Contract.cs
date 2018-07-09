@@ -44,7 +44,7 @@ namespace Practica_1.Entities
 
     public partial class Contract
     {
-        public static Contract FromJson(string json) => JsonConvert.DeserializeObject<Contract>(json, Converter.Settings);
+        public static List<Contract> FromJson(string json) => JsonConvert.DeserializeObject<List<Contract>>(json, Converter.Settings);
     }
 
     

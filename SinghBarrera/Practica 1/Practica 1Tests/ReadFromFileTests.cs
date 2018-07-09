@@ -14,7 +14,7 @@ namespace Practica_1.Tests
         [TestMethod()]
         public void ReadSampleDataAsObjectTest()
         {
-            Assert.Fail;
+            //Assert.Fail;
         }
     }
 }

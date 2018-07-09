@@ -14,9 +14,17 @@ namespace Practica_1
     {
         static void Main(string[] args)
         {
-            var Work = Practica_1.Entities.Work.FromJson(ReadFromFile.ReadSampleDataAsObject("Practica_1.Data.Work.json").ToString());
-            var Contract = Practica_1.Entities.Contract.FromJson(ReadFromFile.ReadSampleDataAsObject("Practica_1.Data.Contract.json").ToString());
-            var Budget = Practica_1.Entities.Budget.FromJson(ReadFromFile.ReadSampleDataAsObject("Practica_1.Data.Budget.json").ToString());
+            var Work = Practica_1.Entities.Work.FromJson(ReadFromFile.ReadSampleDataAsObject("Practica_1.Data.WorkData.json").ToString());
+            var Contract = Practica_1.Entities.Contract.FromJson(ReadFromFile.ReadSampleDataAsObject("Practica_1.Data.ContractData.json").ToString());
+            var Budget = Practica_1.Entities.Budget.FromJson(ReadFromFile.ReadSampleDataAsObject("Practica_1.Data.BudgetData.json").ToString());
+        }
+
+        static void ComparaDineros(List<Practica_1.Entities.Work> works, List<Practica_1.Entities.Budget> budgets, List<Practica_1.Entities.Contract> contracts)
+        {
+            foreach (var work in works)
+            {
+                work.BudgetId=budgets
+            }
         }
     }
 

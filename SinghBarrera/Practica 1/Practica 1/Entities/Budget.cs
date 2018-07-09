@@ -65,7 +65,7 @@ namespace Practica_1.Entities
 
     public partial class Budget
     {
-        public static Budget FromJson(string json) => JsonConvert.DeserializeObject<Budget>(json, Converter.Settings);
+        public static List<Budget> FromJson(string json) => JsonConvert.DeserializeObject<List<Budget>>(json, Converter.Settings);
     }
 
     
