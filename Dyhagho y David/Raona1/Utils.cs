@@ -12,7 +12,9 @@ namespace Raona1
         public static class Serialize
         {
             public static string ToJson(this List<Contract> self) => JsonConvert.SerializeObject(self, Raona1.Converter.Settings);
-        }
+            public static string ToJson(this List<Budget> self) => JsonConvert.SerializeObject(self, Raona1.Converter.Settings);
+            public static string ToJson(this List<Work> self) => JsonConvert.SerializeObject(self, Raona1.Converter.Settings);
+    }
 
         internal static class Converter
         {
