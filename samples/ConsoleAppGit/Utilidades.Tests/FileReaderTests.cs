@@ -15,7 +15,7 @@ namespace Utilidades.Tests
         public void ReadFileContentsTest()
         {
             var fileReader = new FileReader();
-            string filePath = @"C:\wrk\DCS18-git\ConsoleAppGit\test.txt";
+            string filePath = @"C:\wrk\DCS18-git\samples\ConsoleAppGit\test.txt";
             var contents = fileReader.ReadFileContents(filePath);
 
             Assert.AreEqual("Hola Mundo!", contents);
