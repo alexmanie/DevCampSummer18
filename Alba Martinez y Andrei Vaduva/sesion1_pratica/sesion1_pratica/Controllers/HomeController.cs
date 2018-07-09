@@ -21,7 +21,8 @@ namespace sesion1_pratica.Controllers
 
             foreach(var b in budgets)
             {
-                Console.WriteLine(b.BudgetId);
+                //Console.WriteLine(b.BudgetId);
+                
             }
             
             return View();
