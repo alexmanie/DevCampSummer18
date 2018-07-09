@@ -4,7 +4,7 @@
 //
 //    var welcome = Welcome.FromJson(jsonString);
 
-namespace Work
+namespace Practica_1.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -12,8 +12,9 @@ namespace Work
     using System.Globalization;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
+    using Practica_1.Utils;
 
-    public partial class Welcome
+    public partial class Work
     {
         [JsonProperty("WorkId")]
         public long WorkId { get; set; }
@@ -43,25 +44,12 @@ namespace Work
         public long Month { get; set; }
     }
 
-    public partial class Welcome
+    public partial class Work
     {
-        public static Welcome FromJson(string json) => JsonConvert.DeserializeObject<Welcome>(json, Work.Converter.Settings);
+        public static Work FromJson(string json) => JsonConvert.DeserializeObject<Work>(json, Converter.Settings);
     }
 
-    public static class Serialize
-    {
-        public static string ToJson(this Welcome self) => JsonConvert.SerializeObject(self, Work.Converter.Settings);
-    }
+    
 
-    internal static class Converter
-    {
-        public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
-        {
-            MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
-            DateParseHandling = DateParseHandling.None,
-            Converters = {
-                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
-            },
-        };
-    }
+    
 }
