@@ -45,16 +45,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\JSONConverter.cs" />
+    <Compile Include="Entidades\Budget.cs" />
+    <Compile Include="Entidades\Contract.cs" />
+    <Compile Include="Entidades\JsonConverterMethods.cs" />
+    <Compile Include="Entidades\Work.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\FileUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Data\BudgetData.json" />
-    <None Include="Data\ContractsData.json" />
-    <None Include="Data\WorkData.json" />
+    <EmbeddedResource Include="Data\BudgetData.json" />
+    <EmbeddedResource Include="Data\ContractsData.json" />
+    <EmbeddedResource Include="Data\WorkData.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
