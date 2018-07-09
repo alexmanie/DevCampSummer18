@@ -16,7 +16,8 @@ namespace practica1
         {
             object budgetData = Utils.FileUtils.ReadSampleDataAsObject();
             var budget = Budget.FromJson(budgetData.ToString());
-            Console.WriteLine(budget.BudgetId);
+            Console.WriteLine(budgetData);
+            Console.ReadKey();
             /*
             var contract = Contract.FromJson(jsonString);
             Console.WriteLine(budget.BudgetId);

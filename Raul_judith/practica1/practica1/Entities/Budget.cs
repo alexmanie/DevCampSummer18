@@ -22,16 +22,16 @@ namespace QuickType.Entities
         public string Description { get; set; }
 
         [JsonProperty("Amount")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Amount { get; set; }
+        //[JsonConverter(typeof(ParseStringConverter))]
+        public string Amount { get; set; }
 
         [JsonProperty("AmountEUR")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long AmountEur { get; set; }
+        //[JsonConverter(typeof(ParseStringConverter))]
+        public string AmountEur { get; set; }
 
         [JsonProperty("Dedication")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Dedication { get; set; }
+        //[JsonConverter(typeof(ParseStringConverter))]
+        public string Dedication { get; set; }
 
         [JsonProperty("Status")]
         public string Status { get; set; }
@@ -40,8 +40,8 @@ namespace QuickType.Entities
         public string Owner { get; set; }
 
         [JsonProperty("Account")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Account { get; set; }
+        //[JsonConverter(typeof(ParseStringConverter))]
+        public string Account { get; set; }
 
         [JsonProperty("Type")]
         public string Type { get; set; }
@@ -64,7 +64,7 @@ namespace QuickType.Entities
 
     public partial class Budget
     {
-        public static Budget FromJson(string json) => JsonConvert.DeserializeObject<Budget>(json, practica1.Utils.Converter.Settings);
+        public static List<Budget> FromJson(string json) => JsonConvert.DeserializeObject<List<Budget>>(json, practica1.Utils.Converter.Settings);
     }
 
     internal class ParseStringConverter : JsonConverter
