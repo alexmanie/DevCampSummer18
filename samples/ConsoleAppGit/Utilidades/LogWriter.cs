@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleAppGit
+namespace Utilidades
 {
-    class Program
+    public class LogWriter
     {
-        static void Main(string[] args)
+        public void WriteLog(string text)
         {
+            // write to log
         }
     }
 }
