@@ -8,5 +8,11 @@ namespace Raona1
 {
     class Project
     {
+        private Budget budget;
+
+        public Project(Budget b)
+        {
+            this.budget = b;
+        }
     }
 }
