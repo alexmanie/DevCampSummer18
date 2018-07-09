@@ -2,9 +2,9 @@
 //
 //    using DataSet;
 //
-//    var welcome = Welcome.FromJson(jsonString);
+//    var budget = Budget.FromJson(jsonString);
 
-namespace DataSet
+namespace QuickType
 {
     using System;
     using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace DataSet
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public partial class Welcome
+    public partial class Budget
     {
         [JsonProperty("BudgetId")]
         public string BudgetId { get; set; }
@@ -62,14 +62,14 @@ namespace DataSet
         public long DateKey { get; set; }
     }
 
-    public partial class Welcome
+    public partial class Budget
     {
-        public static Welcome FromJson(string json) => JsonConvert.DeserializeObject<Welcome>(json, DataSet.Converter.Settings);
+        public static Budget FromJson(string json) => JsonConvert.DeserializeObject<Budget>(json, DataSet.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this Welcome self) => JsonConvert.SerializeObject(self, DataSet.Converter.Settings);
+        public static string ToJson(this Budget self) => JsonConvert.SerializeObject(self, DataSet.Converter.Settings);
     }
 
     internal static class Converter

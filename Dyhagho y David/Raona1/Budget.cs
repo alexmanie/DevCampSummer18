@@ -2,7 +2,7 @@
 //
 //    using Raona1;
 //
-//    var contract = Contract.FromJson(jsonString);
+//    var Budget = Budget.FromJson(jsonString);
 
 namespace Raona1
 {
@@ -69,7 +69,7 @@ namespace Raona1
 
     /*public static class Serialize
     {
-        public static string ToJson(this Contract self) => JsonConvert.SerializeObject(self, Raona1.Converter.Settings);
+        public static string ToJson(this Budget self) => JsonConvert.SerializeObject(self, Raona1.Converter.Settings);
     }
 
     internal static class Converter
