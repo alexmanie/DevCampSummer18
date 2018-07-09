@@ -26,7 +26,7 @@ namespace Practica.Entities
         public string Amount { get; set; }
 
         [JsonProperty("AmountEUR")]
-        public string AmountEur { get; set; }
+        public double AmountEur { get; set; }
 
         [JsonProperty("Dedication")]
         [JsonConverter(typeof(ParseStringConverter))]

@@ -22,6 +22,38 @@ namespace Practica
             string jsonContract = ReadContractAsync().Result;
             List<Contract> c = JsonConvert.DeserializeObject<List<Contract>>(jsonContract);
 
+            List<Budget> superado = new List<Budget>();
+            List<Budget> noSuperado = new List<Budget>();
+
+            foreach (var budget in b)
+            {
+                List<Work> lw = w.Where(x => x.BudgetId == budget.BudgetId).ToList();
+                var amount = 0.0;
+                foreach (var work in lw)
+                {
+                    amount += work.AmountEur;
+                }
+                if (amount > budget.AmountEur)
+                {
+                    
+                    superado.Add(budget);
+                }
+                else if (amount < budget.AmountEur) {
+                    
+                    noSuperado.Add(budget);
+                }
+            }
+            Console.WriteLine("SUPERADO EL BUDGET");
+            foreach (var s in superado)
+            {
+                Console.WriteLine(s.BudgetId);
+            }
+            Console.WriteLine("NO SUPERADO EL BUDGET");
+            foreach (var s in noSuperado)
+            {
+                Console.WriteLine(s.BudgetId);
+            }
+
         }
 
         static async Task<string> ReadBudgetAsync()
