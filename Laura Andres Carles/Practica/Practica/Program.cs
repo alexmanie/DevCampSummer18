@@ -43,12 +43,12 @@ namespace Practica
                     noSuperado.Add(budget);
                 }
             }
-            Console.WriteLine("SUPERADO EL BUDGET");
+            Console.WriteLine("-----------------------------------\nSUPERADO EL BUDGET\n-----------------------------------");
             foreach (var s in superado)
             {
                 Console.WriteLine(s.BudgetId);
             }
-            Console.WriteLine("NO SUPERADO EL BUDGET");
+            Console.WriteLine("-----------------------------------\nNO SUPERADO EL BUDGET\n-----------------------------------");
             foreach (var s in noSuperado)
             {
                 Console.WriteLine(s.BudgetId);
