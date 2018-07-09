@@ -9,7 +9,7 @@ namespace WindowsFormsApp1.Utils
         public static object ReadSampleDataAsObject()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "WindowsFormsApp1.Data.SampleData.json";
+            var resourceName = "FormsSummerCamp2018.Data.SampleData.json";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
@@ -25,7 +25,7 @@ namespace WindowsFormsApp1.Utils
         public static string ReadSampleData()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "Data.SampleData.json";
+            var resourceName = "FormsSummerCamp2018.Data.SampleData.json";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
@@ -41,7 +41,7 @@ namespace WindowsFormsApp1.Utils
         public static async Task<string> ReadSampleDataAsync()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "Data.SampleData.json";
+            var resourceName = "FormsSummerCamp2018.Data.SampleData.json";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
