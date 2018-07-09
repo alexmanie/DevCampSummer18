@@ -25,6 +25,8 @@ namespace AdriaSergioApp
                 Console.WriteLine(contracts[0].AccountName);
                 Console.WriteLine(works[0].EmployeeUnit);
                 Console.WriteLine(budgets[0].Owner);
+
+               
             }
             catch(System.ArgumentNullException s)
             {
