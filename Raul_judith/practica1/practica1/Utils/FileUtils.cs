@@ -7,16 +7,16 @@ namespace practica1.Utils
     public static class FileUtils
     {
 
-        public static async Task<string> ReadSampleDataAsync()
+        public static object ReadSampleDataAsObject()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "Raul_judith.Data.BudgetData.json";
+            var resourceName = "FormsSummerCamp2018.Data.SampleData.json";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
                 using (StreamReader reader = new StreamReader(stream))
                 {
-                    var sampleDataText = await reader.ReadToEndAsync();
+                    var sampleDataText = reader.ReadToEnd();
 
                     return sampleDataText;
                 }
