@@ -1,10 +1,10 @@
 ﻿// To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using Raona1;
+//    using Contract;
 //
-//    var Budget = Budget.FromJson(jsonString);
+//    var welcome = Welcome.FromJson(jsonString);
 
-namespace Raona1
+namespace Contract
 {
     using System;
     using System.Collections.Generic;
@@ -13,63 +13,42 @@ namespace Raona1
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public partial class Budget
+    public partial class Welcome
     {
-        [JsonProperty("BudgetId")]
-        public string BudgetId { get; set; }
+        [JsonProperty("ContractID")]
+        public string ContractId { get; set; }
 
-        [JsonProperty("Description")]
-        public string Description { get; set; }
+        [JsonProperty("Name")]
+        public string Name { get; set; }
 
-        [JsonProperty("Amount")]
+        [JsonProperty("AccountID")]
+        public long AccountId { get; set; }
+
+        [JsonProperty("AccountName")]
+        public string AccountName { get; set; }
+
+        [JsonProperty("AccountOwner")]
+        public string AccountOwner { get; set; }
+
+        [JsonProperty("ProjectType")]
+        public object ProjectType { get; set; }
+
+        [JsonProperty("Revenue")]
         [JsonConverter(typeof(ParseStringConverter))]
-        public long Amount { get; set; }
+        public long Revenue { get; set; }
 
-        [JsonProperty("AmountEUR")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long AmountEur { get; set; }
-
-        [JsonProperty("Dedication")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Dedication { get; set; }
-
-        [JsonProperty("Status")]
-        public string Status { get; set; }
-
-        [JsonProperty("Owner")]
-        public string Owner { get; set; }
-
-        [JsonProperty("Account")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Account { get; set; }
-
-        [JsonProperty("Type")]
-        public string Type { get; set; }
-
-        [JsonProperty("Source")]
-        public string Source { get; set; }
-
-        [JsonProperty("OpenDate")]
-        public DateTimeOffset OpenDate { get; set; }
-
-        [JsonProperty("Year")]
-        public long Year { get; set; }
-
-        [JsonProperty("Month")]
-        public long Month { get; set; }
-
-        [JsonProperty("DateKey")]
-        public long DateKey { get; set; }
+        [JsonProperty("RevenueEUR")]
+        public string RevenueEur { get; set; }
     }
 
-    public partial class Budget
+    public partial class Welcome
     {
-        public static Budget FromJson(string json) => JsonConvert.DeserializeObject<Budget>(json, Raona1.Converter.Settings);
+        public static Welcome FromJson(string json) => JsonConvert.DeserializeObject<Welcome>(json, Contract.Converter.Settings);
     }
 
-    /*public static class Serialize
+    public static class Serialize
     {
-        public static string ToJson(this Budget self) => JsonConvert.SerializeObject(self, Raona1.Converter.Settings);
+        public static string ToJson(this Welcome self) => JsonConvert.SerializeObject(self, Contract.Converter.Settings);
     }
 
     internal static class Converter
@@ -82,7 +61,7 @@ namespace Raona1
                 new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
             },
         };
-    }*/
+    }
 
     internal class ParseStringConverter : JsonConverter
     {

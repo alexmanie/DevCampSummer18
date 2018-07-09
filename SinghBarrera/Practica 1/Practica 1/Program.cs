@@ -1,12 +1,28 @@
-﻿using System.IO;
-using System.Reflection;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using Work;
+using Budget;
+using Contract;
+using System.IO;
+using System.Reflection;
 
-namespace practica1.Utils
+
+
+namespace Practica_1
 {
-    public static class FileUtils
+    class Program
     {
+        static void Main(string[] args)
+        {
+            var 
+        }
+    }
 
+    public class ReadFromFile
+    {
         public static object ReadSampleDataAsObject()
         {
             var assembly = Assembly.GetExecutingAssembly();
@@ -21,6 +37,9 @@ namespace practica1.Utils
                     return sampleDataText;
                 }
             }
+
         }
+
+
     }
 }

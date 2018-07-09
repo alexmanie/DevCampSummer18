@@ -1,10 +1,10 @@
 ﻿// To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using Raona1;
+//    using Work;
 //
-//    var work = Work.FromJson(jsonString);
+//    var welcome = Welcome.FromJson(jsonString);
 
-namespace Raona1
+namespace Work
 {
     using System;
     using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace Raona1
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public partial class Work
+    public partial class Welcome
     {
         [JsonProperty("WorkId")]
         public long WorkId { get; set; }
@@ -31,7 +31,7 @@ namespace Raona1
         public string Status { get; set; }
 
         [JsonProperty("AmountEUR")]
-        public double AmountEur { get; set; }
+        public long AmountEur { get; set; }
 
         [JsonProperty("Dedication")]
         public long Dedication { get; set; }
@@ -43,14 +43,14 @@ namespace Raona1
         public long Month { get; set; }
     }
 
-    public partial class Work
+    public partial class Welcome
     {
-        public static Work FromJson(string json) => JsonConvert.DeserializeObject<Work>(json, Raona1.Converter.Settings);
+        public static Welcome FromJson(string json) => JsonConvert.DeserializeObject<Welcome>(json, Work.Converter.Settings);
     }
 
-    /*public static class Serialize
+    public static class Serialize
     {
-        public static string ToJson(this Work self) => JsonConvert.SerializeObject(self, Raona1.Converter.Settings);
+        public static string ToJson(this Welcome self) => JsonConvert.SerializeObject(self, Work.Converter.Settings);
     }
 
     internal static class Converter
@@ -63,5 +63,5 @@ namespace Raona1
                 new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
             },
         };
-    }*/
+    }
 }

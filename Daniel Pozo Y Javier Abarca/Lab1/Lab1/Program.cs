@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace practica1
+namespace Lab1
 {
     class Program
     {
         static void Main(string[] args)
         {
-
         }
     }
 }
