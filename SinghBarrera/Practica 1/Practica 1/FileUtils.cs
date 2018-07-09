@@ -38,8 +38,6 @@ namespace WindowsFormsApp1.Utils
             }
         }
 
-        //Tots els metodes asincronos tenen "async" i retornen Task.
-        //Es fica "await" on vols que esperi
         public static async Task<string> ReadSampleDataAsync()
         {
             var assembly = Assembly.GetExecutingAssembly();

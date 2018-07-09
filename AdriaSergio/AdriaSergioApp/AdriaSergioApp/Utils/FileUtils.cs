@@ -22,12 +22,11 @@ namespace WindowsFormsApp1.Utils
             }
         }
 
-        public static string ReadSampleData()
+        public static string ReadSampleData(string path)
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "FormsSummerCamp2018.Data.SampleData.json";
 
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            using (Stream stream = assembly.GetManifestResourceStream(path))
             {
                 using (StreamReader reader = new StreamReader(stream))
                 {
@@ -38,12 +37,10 @@ namespace WindowsFormsApp1.Utils
             }
         }
 
-        //Tots els metodes asincronos tenen "async" i retornen Task.
-        //Es fica "await" on vols que esperi
         public static async Task<string> ReadSampleDataAsync()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "FormsSummerCamp2018.Data.SampleData.json";
+            var resourceName = "AdriaSergioApp.Data.ContractsData.json";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {

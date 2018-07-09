@@ -1,15 +1,19 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApp1.Utils
+namespace Lab1.Utilities
 {
-    public static class FileUtils
+    class FileUtils
     {
-        public static object ReadSampleDataAsObject()
+        public static object ReadData(string filetoread)
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "FormsSummerCamp2018.Data.SampleData.json";
+            var resourceName = filetoread;
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
@@ -22,10 +26,10 @@ namespace WindowsFormsApp1.Utils
             }
         }
 
-        public static string ReadSampleData()
+        public static string ReadSampleData(string filetoread)
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "FormsSummerCamp2018.Data.SampleData.json";
+            var resourceName = filetoread;
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
@@ -38,12 +42,10 @@ namespace WindowsFormsApp1.Utils
             }
         }
 
-        //Tots els metodes asincronos tenen "async" i retornen Task.
-        //Es fica "await" on vols que esperi
-        public static async Task<string> ReadSampleDataAsync()
+        public static async Task<string> ReadSampleDataAsync(string filetoread)
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "FormsSummerCamp2018.Data.SampleData.json";
+            var resourceName = filetoread;
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
@@ -55,5 +57,6 @@ namespace WindowsFormsApp1.Utils
                 }
             }
         }
+
     }
 }
