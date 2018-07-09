@@ -22,11 +22,24 @@ namespace AdriaSergioApp
                 var works = Work.FromJson(stringWorks);
                 var budgets = Budget.FromJson(stringBudgets);
 
-                Console.WriteLine(contracts[0].AccountName);
-                Console.WriteLine(works[0].EmployeeUnit);
-                Console.WriteLine(budgets[0].Owner);
-
-               
+                foreach(Budget b in budgets)
+                {
+                    foreach(Work w in works)
+                    {
+                        if(w.BudgetId == b.BudgetId)
+                        {
+                            if(Double.Parse(b.AmountEur) > w.AmountEur)
+                            {
+                                Console.WriteLine(w.BudgetId + " en el work " + w.WorkId + " + BUDGET DEL PERMITIDO");
+                            }
+                            else if (Double.Parse(b.AmountEur) < w.AmountEur)
+                            {
+                                Console.WriteLine(w.BudgetId + " en el work " + w.WorkId + " - BUDGET DEL PERMITIDO");
+                            }
+                        }
+                    }
+                }
+                Console.ReadKey();
             }
             catch(System.ArgumentNullException s)
             {

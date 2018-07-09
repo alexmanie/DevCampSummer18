@@ -16,16 +16,13 @@ namespace AdriaSergioApp.Entidades
         public string Description { get; set; }
 
         [JsonProperty("Amount")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Amount { get; set; }
+        public string Amount { get; set; }
 
         [JsonProperty("AmountEUR")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long AmountEur { get; set; }
+        public string AmountEur { get; set; }
 
         [JsonProperty("Dedication")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Dedication { get; set; }
+        public string Dedication { get; set; }
 
         [JsonProperty("Status")]
         public string Status { get; set; }
@@ -34,8 +31,7 @@ namespace AdriaSergioApp.Entidades
         public string Owner { get; set; }
 
         [JsonProperty("Account")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Account { get; set; }
+        public string Account { get; set; }
 
         [JsonProperty("Type")]
         public string Type { get; set; }
