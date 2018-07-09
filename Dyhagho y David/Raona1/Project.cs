@@ -8,15 +8,29 @@ namespace Raona1
 {
     class Project
     {
-        private Budget budget;
-        private Contract contract;
-        private Work work;
+        public Budget budget { get; set; }
+        public Contract contract { get; set; }
+        public List<Work> workList { get; set; }
 
-        public Project(Budget b, Contract c, Work w)
-        {
-            this.budget = b;
-            this.contract = c;
-            this.work = w;
+        public Project() {
+        }
+
+        private float AmountUsed() {
+            float total = 0;
+            foreach (var w in workList)
+            {
+                total += (float)w.AmountEur;
+            }
+            return total;
+        }
+
+        public Boolean IsBudgetUseBelow() {
+            float budgetAmount = float.Parse(budget.AmountEur);
+            return AmountUsed()>budgetAmount;
+        }
+        public Boolean IsBudgetUseUnder() {
+            float budgetAmount = float.Parse(budget.AmountEur);
+            return AmountUsed() > budgetAmount;
         }
     }
 }

@@ -14,6 +14,18 @@ namespace Raona1
             List<Budget> budgetList = FileUtils.readBudgetList("Raona1.files.BudgetData.json");
             List<Contract> contractList = FileUtils.readContractList("Raona1.files.ContractsData.json");
 
+            List<Project> projects = new List<Project>();
+            foreach (var contract in contractList)
+            {
+                Project p = new Project();
+                p.contract = contract;
+                p.budget = budgetList.Where(b => b.Account.Equals(contract.AccountId)).First();
+                projects.Add(p);
+            }
+
+            foreach (var p in projects) {
+                p.workList = workList.Where(w => w.BudgetId.Equals(p.budget.BudgetId)).ToList();
+            }
 
         }
     }
