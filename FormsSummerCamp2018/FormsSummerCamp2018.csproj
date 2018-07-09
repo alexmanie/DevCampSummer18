@@ -83,6 +83,9 @@
     </Compile>
     <EmbeddedResource Include="Data\SampleData.json" />
     <EmbeddedResource Include="Data\SampleDataEngineers.json" />
+    <EmbeddedResource Include="Data\BudgetData.json" />
+    <EmbeddedResource Include="Data\ContractsData.json" />
+    <EmbeddedResource Include="Data\WorkData.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
