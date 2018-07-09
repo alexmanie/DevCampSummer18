@@ -10,7 +10,7 @@ namespace practica1.Utils
         public static object ReadSampleDataAsObject()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "FormsSummerCamp2018.Data.SampleData.json";
+            var resourceName = "practica1.Data.BudgetData.json";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {

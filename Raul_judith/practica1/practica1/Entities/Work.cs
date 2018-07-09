@@ -4,7 +4,7 @@
 //
 //    var work = Work.FromJson(jsonString);
 
-namespace QuickType
+namespace QuickType.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -45,23 +45,8 @@ namespace QuickType
 
     public partial class Work
     {
-        public static Work FromJson(string json) => JsonConvert.DeserializeObject<Work>(json, QuickType.Converter.Settings);
+        public static Work FromJson(string json) => JsonConvert.DeserializeObject<Work>(json, practica1.Utils.Converter.Settings);
     }
 
-    public static class Serialize
-    {
-        public static string ToJson(this Work self) => JsonConvert.SerializeObject(self, QuickType.Converter.Settings);
-    }
-
-    internal static class Converter
-    {
-        public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
-        {
-            MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
-            DateParseHandling = DateParseHandling.None,
-            Converters = {
-                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
-            },
-        };
-    }
+   
 }
