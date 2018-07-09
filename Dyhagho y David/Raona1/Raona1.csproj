@@ -47,15 +47,20 @@
   <ItemGroup>
     <Compile Include="Budget.cs" />
     <Compile Include="Contract.cs" />
+    <Compile Include="FileUtils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils.cs" />
     <Compile Include="Work.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EmbeddedResource Include="files\BudgetData.json" />
+    <EmbeddedResource Include="files\ContractsData.json" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="files\WorkData.json" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

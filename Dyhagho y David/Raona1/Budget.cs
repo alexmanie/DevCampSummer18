@@ -2,7 +2,7 @@
 //
 //    using Raona1;
 //
-//    var contract = Contract.FromJson(jsonString);
+//    var Budget = Budget.FromJson(jsonString);
 
 namespace Raona1
 {
@@ -22,16 +22,16 @@ namespace Raona1
         public string Description { get; set; }
 
         [JsonProperty("Amount")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Amount { get; set; }
+        //[JsonConverter(typeof(ParseStringConverter))]
+        public string Amount { get; set; }
 
         [JsonProperty("AmountEUR")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long AmountEur { get; set; }
+        //[JsonConverter(typeof(ParseStringConverter))]
+        public string AmountEur { get; set; }
 
         [JsonProperty("Dedication")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Dedication { get; set; }
+        //[JsonConverter(typeof(ParseStringConverter))]
+        public string Dedication { get; set; }
 
         [JsonProperty("Status")]
         public string Status { get; set; }
@@ -40,8 +40,8 @@ namespace Raona1
         public string Owner { get; set; }
 
         [JsonProperty("Account")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Account { get; set; }
+        //[JsonConverter(typeof(ParseStringConverter))]
+        public string Account { get; set;  }
 
         [JsonProperty("Type")]
         public string Type { get; set; }
@@ -64,25 +64,8 @@ namespace Raona1
 
     public partial class Budget
     {
-        public static Budget FromJson(string json) => JsonConvert.DeserializeObject<Budget>(json, Raona1.Converter.Settings);
+        public static List<Budget> FromJson(string json) => JsonConvert.DeserializeObject<List<Budget>>(json, Raona1.Converter.Settings);
     }
-
-    /*public static class Serialize
-    {
-        public static string ToJson(this Contract self) => JsonConvert.SerializeObject(self, Raona1.Converter.Settings);
-    }
-
-    internal static class Converter
-    {
-        public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
-        {
-            MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
-            DateParseHandling = DateParseHandling.None,
-            Converters = {
-                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
-            },
-        };
-    }*/
 
     internal class ParseStringConverter : JsonConverter
     {

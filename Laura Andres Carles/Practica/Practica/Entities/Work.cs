@@ -1,10 +1,10 @@
 ﻿// To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using Work;
+//    using Practica.Entities;
 //
-//    var welcome = Welcome.FromJson(jsonString);
+//    var work = Work.FromJson(jsonString);
 
-namespace Work
+namespace Practica.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace Work
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public partial class Welcome
+    public partial class Work
     {
         [JsonProperty("WorkId")]
         public long WorkId { get; set; }
@@ -31,7 +31,7 @@ namespace Work
         public string Status { get; set; }
 
         [JsonProperty("AmountEUR")]
-        public long AmountEur { get; set; }
+        public double AmountEur { get; set; }
 
         [JsonProperty("Dedication")]
         public long Dedication { get; set; }
@@ -43,25 +43,10 @@ namespace Work
         public long Month { get; set; }
     }
 
-    public partial class Welcome
+    public partial class Work
     {
-        public static Welcome FromJson(string json) => JsonConvert.DeserializeObject<Welcome>(json, Work.Converter.Settings);
+        public static List<Work> FromJson(string json) => JsonConvert.DeserializeObject<List<Work>>(json, Practica.Utils.Converter.Settings);
     }
 
-    public static class Serialize
-    {
-        public static string ToJson(this Welcome self) => JsonConvert.SerializeObject(self, Work.Converter.Settings);
-    }
-
-    internal static class Converter
-    {
-        public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
-        {
-            MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
-            DateParseHandling = DateParseHandling.None,
-            Converters = {
-                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
-            },
-        };
-    }
 }
+

@@ -45,7 +45,7 @@ namespace Raona1
 
     public partial class Work
     {
-        public static Work FromJson(string json) => JsonConvert.DeserializeObject<Work>(json, Raona1.Converter.Settings);
+        public static List<Work> FromJson(string json) => JsonConvert.DeserializeObject<List<Work>>(json, Raona1.Converter.Settings);
     }
 
     /*public static class Serialize
