@@ -1,10 +1,10 @@
 ﻿// To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using Raona1;
+//    using QuickType;
 //
 //    var work = Work.FromJson(jsonString);
 
-namespace Raona1
+namespace QuickType
 {
     using System;
     using System.Collections.Generic;
@@ -45,12 +45,12 @@ namespace Raona1
 
     public partial class Work
     {
-        public static Work FromJson(string json) => JsonConvert.DeserializeObject<Work>(json, Raona1.Converter.Settings);
+        public static Work FromJson(string json) => JsonConvert.DeserializeObject<Work>(json, QuickType.Converter.Settings);
     }
 
-    /*public static class Serialize
+    public static class Serialize
     {
-        public static string ToJson(this Work self) => JsonConvert.SerializeObject(self, Raona1.Converter.Settings);
+        public static string ToJson(this Work self) => JsonConvert.SerializeObject(self, QuickType.Converter.Settings);
     }
 
     internal static class Converter
@@ -63,5 +63,5 @@ namespace Raona1
                 new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
             },
         };
-    }*/
+    }
 }

@@ -1,10 +1,10 @@
 ﻿// To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using Raona1;
+//    using Lab1.Entities.Contracts;
 //
-//    var contract = Contract.FromJson(jsonString);
+//    var welcome = Welcome.FromJson(jsonString);
 
-namespace Raona1
+namespace Lab1.Entities.Contracts
 {
     using System;
     using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace Raona1
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public partial class Contract
+    public partial class Contracts
     {
         [JsonProperty("ContractID")]
         public string ContractId { get; set; }
@@ -40,14 +40,14 @@ namespace Raona1
         public string RevenueEur { get; set; }
     }
 
-    public partial class Contract
+    public partial class Contracs
     {
-        public static Contract FromJson(string json) => JsonConvert.DeserializeObject<Contract>(json, Raona1.Converter.Settings);
+        public static Contracs FromJson(string json) => JsonConvert.DeserializeObject<Contracs>(json, Lab1.Entities.Contracts.Converter.Settings);
     }
 
-    /*public static class Serialize
+    public static class Serialize
     {
-        public static string ToJson(this Contract self) => JsonConvert.SerializeObject(self, Raona1.Converter.Settings);
+        public static string ToJson(this Contracs self) => JsonConvert.SerializeObject(self, Lab1.Entities.Contracts.Converter.Settings);
     }
 
     internal static class Converter
@@ -60,5 +60,5 @@ namespace Raona1
                 new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
             },
         };
-    }*/
+    }
 }

@@ -1,10 +1,10 @@
 ﻿// To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using Raona1;
+//    using Budget;
 //
-//    var Budget = Budget.FromJson(jsonString);
+//    var welcome = Welcome.FromJson(jsonString);
 
-namespace Raona1
+namespace Budget
 {
     using System;
     using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace Raona1
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public partial class Budget
+    public partial class Welcome
     {
         [JsonProperty("BudgetId")]
         public string BudgetId { get; set; }
@@ -62,14 +62,14 @@ namespace Raona1
         public long DateKey { get; set; }
     }
 
-    public partial class Budget
+    public partial class Welcome
     {
-        public static Budget FromJson(string json) => JsonConvert.DeserializeObject<Budget>(json, Raona1.Converter.Settings);
+        public static Welcome FromJson(string json) => JsonConvert.DeserializeObject<Welcome>(json, Budget.Converter.Settings);
     }
 
-    /*public static class Serialize
+    public static class Serialize
     {
-        public static string ToJson(this Budget self) => JsonConvert.SerializeObject(self, Raona1.Converter.Settings);
+        public static string ToJson(this Welcome self) => JsonConvert.SerializeObject(self, Budget.Converter.Settings);
     }
 
     internal static class Converter
@@ -82,7 +82,7 @@ namespace Raona1
                 new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
             },
         };
-    }*/
+    }
 
     internal class ParseStringConverter : JsonConverter
     {

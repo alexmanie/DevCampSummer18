@@ -4,14 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace practica1
+namespace Lab1.Utilities
 {
-    class Program
+    class FileUtils
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }

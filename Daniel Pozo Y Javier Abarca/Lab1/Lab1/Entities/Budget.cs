@@ -1,10 +1,16 @@
-﻿// To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
-//
-//    using Raona1;
-//
-//    var Budget = Budget.FromJson(jsonString);
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Raona1
+// To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
+//
+//    using Budget;
+//
+//    var welcome = Welcome.FromJson(jsonString);
+
+namespace Lab1.Entities.Budget
 {
     using System;
     using System.Collections.Generic;
@@ -40,8 +46,7 @@ namespace Raona1
         public string Owner { get; set; }
 
         [JsonProperty("Account")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Account { get; set; }
+        public object Account { get; set; }
 
         [JsonProperty("Type")]
         public string Type { get; set; }
@@ -64,12 +69,12 @@ namespace Raona1
 
     public partial class Budget
     {
-        public static Budget FromJson(string json) => JsonConvert.DeserializeObject<Budget>(json, Raona1.Converter.Settings);
+        public static Budget FromJson(string json) => JsonConvert.DeserializeObject<Budget>(json, Lab1.Entities.Budget.Converter.Settings);
     }
 
-    /*public static class Serialize
+    public static class Serialize
     {
-        public static string ToJson(this Budget self) => JsonConvert.SerializeObject(self, Raona1.Converter.Settings);
+        public static string ToJson(this Budget self) => JsonConvert.SerializeObject(self, Lab1.Entities.Budget.Converter.Settings);
     }
 
     internal static class Converter
@@ -82,7 +87,7 @@ namespace Raona1
                 new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
             },
         };
-    }*/
+    }
 
     internal class ParseStringConverter : JsonConverter
     {
