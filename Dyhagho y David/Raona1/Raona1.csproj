@@ -55,7 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EmbeddedResource Include="files\BudgetData.json" />
+    <EmbeddedResource Include="files\ContractsData.json" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="files\WorkData.json" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
