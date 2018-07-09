@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace Raona1
 {
-    class Project
+    class Utils
     {
-        private Budget budget;
-
-        public Project(Budget b)
-        {
-            this.budget = b;
-        }
     }
 }
