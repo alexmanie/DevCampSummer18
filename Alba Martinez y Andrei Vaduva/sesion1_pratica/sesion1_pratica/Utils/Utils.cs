@@ -14,7 +14,7 @@ namespace sesion1_pratica.Models
         public  async Task<string> ReadJsonAsync(string nombre)
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "sesion1_practica.App_Data." + nombre;
+            var resourceName = "sesion1_pratica.App_Data." + nombre;
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {

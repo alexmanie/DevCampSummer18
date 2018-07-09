@@ -12,7 +12,7 @@ namespace sesion1_pratica.Controllers
     public class HomeController : Controller
     {
 
-        public async Task<ActionResult> IndexAsync()
+        public async Task<ActionResult> Index()
         {
             Utils u = new Utils();
             string dataText = await u.ReadJsonAsync("BudgetData.json");
@@ -24,7 +24,7 @@ namespace sesion1_pratica.Controllers
                 Console.WriteLine(b.BudgetId);
             }
             
-            return null;
+            return View();
         }
 
        
