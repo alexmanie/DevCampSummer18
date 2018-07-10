@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{620F0311-B7A4-4827-AD55-EB421194AE3C}</ProjectGuid>
+    <ProjectGuid>{07BF38CD-5921-4A94-91E8-C0E4A11642B2}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AdriaSergioApp</RootNamespace>
-    <AssemblyName>AdriaSergioApp</AssemblyName>
+    <RootNamespace>BudgetApp</RootNamespace>
+    <AssemblyName>BudgetApp</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,22 +45,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\Budget.cs" />
-    <Compile Include="Entidades\Contract.cs" />
-    <Compile Include="Entidades\JsonConverterMethods.cs" />
-    <Compile Include="Entidades\Work.cs" />
+    <Compile Include="Entities\Budget.cs" />
+    <Compile Include="Entities\Contact.cs" />
+    <Compile Include="Utils\QuickTypeUtils.cs" />
+    <Compile Include="Entities\Work.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\FileUtils.cs" />
+    <Compile Include="Utils\Files.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EmbeddedResource Include="Data\BudgetData.json" />
-    <EmbeddedResource Include="Data\ContractsData.json" />
-    <EmbeddedResource Include="Data\WorkData.json" />
+    <EmbeddedResource Include="data\BudgetData.json" />
+    <EmbeddedResource Include="data\ContractsData.json" />
+    <EmbeddedResource Include="data\WorkData.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <ProjectExtensions />
 </Project>

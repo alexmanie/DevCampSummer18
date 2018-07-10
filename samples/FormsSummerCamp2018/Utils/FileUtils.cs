@@ -55,5 +55,53 @@ namespace WindowsFormsApp1.Utils
                 }
             }
         }
+
+        public static async Task<string> ReadBudgetDataAsync()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = "FormsSummerCamp2018.Data.BudgetData.json";
+
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    var sampleDataText = await reader.ReadToEndAsync();
+
+                    return sampleDataText;
+                }
+            }
+        }
+
+        public static async Task<string> ReadContractsDataAsync()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = "FormsSummerCamp2018.Data.ContractsData.json";
+
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    var sampleDataText = await reader.ReadToEndAsync();
+
+                    return sampleDataText;
+                }
+            }
+        }
+
+        public static async Task<string> ReadWorkDataAsync()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = "FormsSummerCamp2018.Data.WorkData.json";
+
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    var sampleDataText = await reader.ReadToEndAsync();
+
+                    return sampleDataText;
+                }
+            }
+        }
     }
 }

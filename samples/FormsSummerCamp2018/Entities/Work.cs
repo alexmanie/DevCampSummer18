@@ -1,12 +1,19 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
+//
+//    using FormsSummerCamp2018.Entities;
+//
+//    var work = Work.FromJson(jsonString);
 
-namespace AdriaSergioApp.Entidades
-{public partial class Work
+namespace FormsSummerCamp2018.Entities
+{
+    using System;
+    using System.Collections.Generic;
+
+    using System.Globalization;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+
+    public partial class Work
     {
         [JsonProperty("WorkId")]
         public long WorkId { get; set; }
@@ -38,6 +45,6 @@ namespace AdriaSergioApp.Entidades
 
     public partial class Work
     {
-        public static List<Work> FromJson(string json) => JsonConvert.DeserializeObject<List<Work>>(json, AdriaSergioApp.Entidades.Converter.Settings);
-   } 
+        public static List<Work> FromJson(string json) => JsonConvert.DeserializeObject<List<Work>>(json, FormsSummerCamp2018.Utils.Converter.Settings);
+    }
 }

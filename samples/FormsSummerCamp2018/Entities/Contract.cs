@@ -1,10 +1,10 @@
 ﻿// To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using AdriaSergioApp.Entidades;
+//    using FormsSummerCamp2018.Entities;
 //
-//    var contracts = Contracts.FromJson(jsonString);
+//    var contract = Contract.FromJson(jsonString);
 
-namespace AdriaSergioApp.Entidades
+namespace FormsSummerCamp2018.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -42,6 +42,6 @@ namespace AdriaSergioApp.Entidades
 
     public partial class Contract
     {
-        public static List<Contract> FromJson(string json) => JsonConvert.DeserializeObject<List<Contract>>(json, AdriaSergioApp.Entidades.Converter.Settings);
+        public static List<Contract> FromJson(string json) => JsonConvert.DeserializeObject<List<Contract>>(json, FormsSummerCamp2018.Utils.Converter.Settings);
     }
 }

@@ -1,15 +1,22 @@
-﻿using System.IO;
-using System.Reflection;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApp1.Utils
+using System.IO;
+using System.Reflection;
+
+namespace BudgetApp.Utils
 {
-    public static class FileUtils
+    class Files
     {
         public static object ReadSampleDataAsObject()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "FormsSummerCamp2018.Data.SampleData.json";
+            //var resourceName = "BudgetApp.data.WorkData.json";
+            var resourceName = "BudgetApp.data.ContractsData.json";
+           // var resourceName = "BudgetApp.data.BudgetData.json";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
@@ -22,11 +29,12 @@ namespace WindowsFormsApp1.Utils
             }
         }
 
-        public static string ReadSampleData(string path)
+        public static string ReadSampleData()
         {
             var assembly = Assembly.GetExecutingAssembly();
-
-            using (Stream stream = assembly.GetManifestResourceStream(path))
+            var resourceName = "BudgetApp.data.BudgetData.json";
+            
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
                 using (StreamReader reader = new StreamReader(stream))
                 {
@@ -40,7 +48,7 @@ namespace WindowsFormsApp1.Utils
         public static async Task<string> ReadSampleDataAsync()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "AdriaSergioApp.Data.ContractsData.json";
+            var resourceName = "BudgetApp.data.BudgetData.json";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {

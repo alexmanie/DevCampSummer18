@@ -1,10 +1,10 @@
-﻿// To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
-//
-//    using AdriaSergioApp.Entidades;
-//
-//    var contracts = Contracts.FromJson(jsonString);
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace AdriaSergioApp.Entidades
+namespace BudgetApp.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace AdriaSergioApp.Entidades
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public partial class Contract
+    public partial class Contact
     {
         [JsonProperty("ContractID")]
         public string ContractId { get; set; }
@@ -31,7 +31,7 @@ namespace AdriaSergioApp.Entidades
         public string AccountOwner { get; set; }
 
         [JsonProperty("ProjectType")]
-        public object ProjectType { get; set; }
+        public string ProjectType { get; set; }
 
         [JsonProperty("Revenue")]
         public string Revenue { get; set; }
@@ -40,8 +40,11 @@ namespace AdriaSergioApp.Entidades
         public string RevenueEur { get; set; }
     }
 
-    public partial class Contract
+    public partial class Contact
     {
-        public static List<Contract> FromJson(string json) => JsonConvert.DeserializeObject<List<Contract>>(json, AdriaSergioApp.Entidades.Converter.Settings);
+        public static List<Contact> FromJson(string json) => JsonConvert.DeserializeObject<List<Contact>>(json, Converter.Settings);
     }
+
+    
+
 }

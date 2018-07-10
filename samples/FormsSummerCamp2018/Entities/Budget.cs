@@ -1,12 +1,19 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
+//
+//    using FormsSummerCamp2018.Entities;
+//
+//    var demo = Budget.FromJson(jsonString);
 
-namespace AdriaSergioApp.Entidades
+namespace FormsSummerCamp2018.Entities
 {
+    using System;
+    using System.Collections.Generic;
+
+    using System.Globalization;
+    using FormsSummerCamp2018.Utils;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+
     public partial class Budget
     {
         [JsonProperty("BudgetId")]
@@ -16,12 +23,15 @@ namespace AdriaSergioApp.Entidades
         public string Description { get; set; }
 
         [JsonProperty("Amount")]
+        //[JsonConverter(typeof(ParseStringConverter))]
         public string Amount { get; set; }
 
         [JsonProperty("AmountEUR")]
+        //[JsonConverter(typeof(ParseStringConverter))]
         public string AmountEur { get; set; }
 
         [JsonProperty("Dedication")]
+        //[JsonConverter(typeof(ParseStringConverter))]
         public string Dedication { get; set; }
 
         [JsonProperty("Status")]
@@ -31,7 +41,8 @@ namespace AdriaSergioApp.Entidades
         public string Owner { get; set; }
 
         [JsonProperty("Account")]
-        public string Account { get; set; }
+        [JsonConverter(typeof(ParseStringConverter))]
+        public long? Account { get; set; }
 
         [JsonProperty("Type")]
         public string Type { get; set; }
@@ -54,6 +65,7 @@ namespace AdriaSergioApp.Entidades
 
     public partial class Budget
     {
-        public static List<Budget> FromJson(string json) => JsonConvert.DeserializeObject<List<Budget>>(json, AdriaSergioApp.Entidades.Converter.Settings);
-    }
+        public static List<Budget> FromJson(string json) => JsonConvert.DeserializeObject<List<Budget>>(json, FormsSummerCamp2018.Utils.Converter.Settings);
+    }    
 }
+
